@@ -1,0 +1,69 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <!-- ID Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>ID</th>
+    <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+  </ng-container>
+
+  <!-- Unit Number Column -->
+  <ng-container matColumnDef="unitNumber">
+    <th mat-header-cell *matHeaderCellDef>Unit Number</th>
+    <td mat-cell *matCellDef="let element">{{ element.unitNumber }}</td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Name</th>
+    <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+  </ng-container>
+
+  <!-- Email Column -->
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef>Email</th>
+    <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+  </ng-container>
+
+  <!-- Service Type Column -->
+  <ng-container matColumnDef="serviceType">
+    <th mat-header-cell *matHeaderCellDef>Service Type</th>
+    <td mat-cell *matCellDef="let element">{{ element.serviceType }}</td>
+  </ng-container>
+
+  <!-- Summary Column -->
+  <ng-container matColumnDef="summary">
+    <th mat-header-cell *matHeaderCellDef>Summary</th>
+    <td mat-cell *matCellDef="let element">{{ element.summary }}</td>
+  </ng-container>
+
+  <!-- Details Column -->
+  <ng-container matColumnDef="details">
+    <th mat-header-cell *matHeaderCellDef>Details</th>
+    <td mat-cell *matCellDef="let element">{{ element.details }}</td>
+  </ng-container>
+
+  <!-- Submitted At Column -->
+  <ng-container matColumnDef="submittedAt">
+    <th mat-header-cell *matHeaderCellDef>Submitted At</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.submittedAt | date: 'short' }}
+    </td>
+  </ng-container>
+
+  <!-- Action Column (Close Button) -->
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef>Action</th>
+    <td mat-cell *matCellDef="let element">
+      <button
+        mat-icon-button
+        [color]="element.isClosed ? 'success' : 'warn'"
+        (click)="removeRequest(element.id)"
+      >
+        {{ element.isClosed ? 'Closed' : 'Close' }}
+      </button>
+    </td>
+  </ng-container>
+
+  <!-- Header and Row Declarations -->
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>

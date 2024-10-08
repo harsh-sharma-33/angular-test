@@ -1,0 +1,22 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Centering the form vertically */
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px; /* Adjust the max width as needed */
+  margin: 0 auto; /* Center horizontally */
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column; /* Arrange form elements in a column */
+}
+
+.full-width {
+  width: 100%; /* Ensure form fields and button take full width */
+  margin-bottom: 16px; /* Add some spacing between form controls */
+}
